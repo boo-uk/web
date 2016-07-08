@@ -1,5 +1,16 @@
 <template name="layout">
-		<input type="text">
+{{> header}}
+
 		<h1>layout</h1>
-		<a href="/login">go</a>
+		<a href="{{pathFor route='login'}}">Log In</a>
+<!--<aside>-->
+		<!--{{!> yield "aside"}}-->
+<!--</aside>-->
+
+<!--<article>-->
+		<!--{{!> yield}}-->
+<!--</article>-->
+
+
+{{> footer}}
 </template>
