@@ -1,0 +1,30 @@
+<template name="login_page">
+    <div class="row">
+        <div class="col l4 m6 s8 offset-l4 offset-m3 offset-s2">
+            <div class="card">
+                <div class="card-content">
+                    {{#if currentUser}}
+                        <h2>You're logged in.</h2>
+                        {{> logout}}
+                    {{else}}
+                        <span class="card-title">Login</span>
+                        <div class="row">
+                            <div class="col s12">
+                                <ul class="tabs">
+                                    <li class="tab col s3"><a href="#login">Log in</a></li>
+                                    <li class="tab col s3"><a class="active" href="#register">Register</a></li>
+                                </ul>
+                            </div>
+                            {{> login}}
+                            {{> register}}
+                        </div>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="/">back</a>
+</template>
+<template name="logout">
+    <a id="logout" class="waves-effect waves-light btn">Logout</a>
+</template>
