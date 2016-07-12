@@ -7,6 +7,7 @@
                    <li><a href="#">Item1</a></li>
                    <li><a href="#">Item2</a></li>
                    {{#if currentUser}}
+                       <li><a href="#">{{userMail}}</a></li>
                        <li>{{> logout}}</li>
                    {{else}}
                        <li><a href="{{pathFor route='login'}}">Log In</a></li>
