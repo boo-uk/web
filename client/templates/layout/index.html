@@ -1,14 +1,32 @@
 <template name="layout">
 {{> header}}
-		<input type="text" title="">
-		<h1>layout</h1>
-		<a href="{{pathFor route='login'}}">Log In</a>
-<!--<aside>-->
-		<!--{{!> yield "aside"}}-->
-<!--</aside>-->
+    <h1>layout</h1>
 
-<!--<article>-->
-		<!--{{!> yield}}-->
-<!--</article>-->
+{{> addItem}}
+{{> houses}}
+
 {{> footer}}
+</template>
+
+<template name="addItem">
+    <div class="fixed-action-btn horizontal" style="bottom: 45px; right: 24px;">
+        <a class="btn-floating btn-large red">
+            <i class="large material-icons">add</i>
+        </a>
+        <ul>
+            <li><a id="add-item" class="btn-floating red"><i class="material-icons">home</i></a></li>
+            <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+            <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+            <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+        </ul>
+    </div>
+</template>
+<template name="houses">
+    {{#if houseItems}}
+        {{#each houseItems as house}}
+            {{house.createdAt}}
+        {{/each}}
+    {{else}}
+        <p>No houses!</p>
+    {{/if}}
 </template>

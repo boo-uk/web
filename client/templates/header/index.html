@@ -4,9 +4,13 @@
            <div class="nav-wrapper">
                <a href="#" class="brand-logo">Logo</a>
                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                   <li><a href="sass.html">Sass</a></li>
-                   <li><a href="badges.html">Components</a></li>
-                   <li><a href="collapsible.html">JavaScript</a></li>
+                   <li><a href="#">Item1</a></li>
+                   <li><a href="#">Item2</a></li>
+                   {{#if currentUser}}
+                       <li>{{> logout}}</li>
+                   {{else}}
+                       <li><a href="{{pathFor route='login'}}">Log In</a></li>
+                   {{/if}}
                </ul>
            </div>
        </nav>
