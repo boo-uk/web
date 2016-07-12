@@ -1,0 +1,21 @@
+<template name="houses">
+    <div>Houses</div>
+    {{#each house}}
+
+    <div class="card small">
+        <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="http://lorempixel.com/g/400/200/">
+        </div>
+        <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">{{title}}<i class="material-icons right">more_vert</i></span>
+
+        </div>
+        <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">{{title}}<i class="material-icons right">close</i></span>
+            <p>City: {{city}}</p>
+            <p>Street: {{street}}</p>
+            <p>Number: {{number}}</p>
+        </div>
+    </div>
+    {{/each}}
+</template>
