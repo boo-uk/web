@@ -1,8 +1,8 @@
-Template.layout.rendered = ()=>{
+Template.masterLayout.rendered = ()=>{
     $('ul.tabs').tabs();
 };
 
-Template.layout.events({
+Template.masterLayout.events({
     'click #logout': ()=>{
         Meteor.logout((err)=>{
             console.log(err)

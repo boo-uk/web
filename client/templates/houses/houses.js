@@ -1,22 +1,15 @@
-/**
- * Created by devds on 12.07.2016.
- */
 Template.houses.helpers ({
-    house: function () {
-        return Houses.find();
-    }
-});
+    house: ()=>  Houses.find()
+})
+
 Template.add_house.events ({
-    'click .submit': function() {
+    'click .submit': (e, template)=> {
         Houses.insert({
-            title: $('.house-title').val(),
-            city: $('.house-city').val(),
-            street: $('.house-street').val(),
-            number: $('.house-number').val()
+            title: template.find('.house-title').value,
+            city: template.find('.house-city').value,
+            street: template.find('.house-street').value,
+            number: template.find('.house-number').value
         });
-        $('.house-title').val('');
-        $('.house-city').val('');
-        $('.house-street').val('');
-        $('.house-number').val('');
+        template.find('#add-house').reset();
     }
 });
