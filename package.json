@@ -2,9 +2,17 @@
   "name": "main",
   "private": true,
   "scripts": {
-    "start": "meteor run"
+    "run": "meteor run",
+    "update": "meteor update"
   },
   "dependencies": {
     "meteor-node-stubs": "~0.2.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^6.1.2",
+    "eslint": "^3.0.1",
+    "eslint-import-resolver-meteor": "^0.2.4",
+    "eslint-plugin-import": "^1.10.3",
+    "eslint-plugin-meteor": "^3.6.0"
   }
 }

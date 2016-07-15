@@ -1,14 +1,18 @@
 <template name="header">
    <header>
        <nav>
+           <ul id="dropdown1" class="dropdown-content">
+               <li><a href="{{pathFor route='profile'}}">Profile</a></li>
+               <li class="divider"></li>
+		           <li>{{> logout}}</li>
+           </ul>
            <div class="nav-wrapper">
-               <a href="#" class="brand-logo">Logo</a>
+               <a href="/" class="brand-logo">Logo</a>
                <ul id="nav-mobile" class="right hide-on-med-and-down">
                    <li><a href="#">Item1</a></li>
                    <li><a href="#">Item2</a></li>
                    {{#if currentUser}}
-                       <li><a href="{{pathFor route='User_profile'}}">{{userMail}}</a></li>
-                       <li>{{> logout}}</li>
+		                   <li><a id="myElem" class="dropdown-button" href="#" data-activates="dropdown1">{{userMail}}<i class="material-icons right">arrow_drop_down</i></a></li>
                    {{else}}
                        <li><a href="{{pathFor route='login'}}">Log In</a></li>
                    {{/if}}

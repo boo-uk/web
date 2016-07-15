@@ -1,6 +1,6 @@
 Template.houses.helpers ({
-    house: ()=>  Houses.find()
-})
+    house: () =>  Houses.find()
+});
 
 Template.add_house.events ({
     'click .submit': (e, template)=> {
