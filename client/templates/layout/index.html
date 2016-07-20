@@ -1,11 +1,10 @@
 <template name="masterLayout">
 		{{> header}}
-    <h1>layout</h1>
-{{> yield}}
-{{#if currentUser}}
-		{{> addItem}}
-{{/if}}
-{{> footer}}
+		{{> yield}}
+		{{#if currentUser}}
+				{{> addItem}}
+		{{/if}}
+		{{> footer}}
 </template>
 
 <template name="addItem">
