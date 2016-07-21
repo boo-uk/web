@@ -5,6 +5,7 @@
     <div class="card small" style="display: inline-block;">
         <div class="card-image waves-effect waves-block waves-light">
             <img class="activator" src="https://unsplash.it/400/200?random">
+            <!--<img class="activator" src="{{img}}">-->
         </div>
         <div class="card-content">
             <span class="card-title activator grey-text text-darken-4">{{title}}<i class="material-icons right">more_vert</i></span>
@@ -17,6 +18,13 @@
             <p>Street: {{street}}</p>
             <p>Number: {{number}}</p>
             <p>Check-in: {{checkIn}}</p>
+            <p>Check-out: {{checkOut}}</p>
+            <p>{{#if wifi}}
+                <i class="material-icons">wifi</i>
+                {{else}}
+                <i class="material-icons">signal_wifi_off</i>
+                {{/if}}
+            </p>
         </div>
     </div>
     {{/each}}
