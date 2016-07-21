@@ -1,3 +1,13 @@
+// let password = document.getElementById("password");
+// let confirm_password = document.getElementById("confirm_password");
+//
+// function validatePassword(pass, confirm) {
+//     if(password.value !== confirm_password.value) {
+//         confirm_password.setCustomValidity("Passwords Don't Match");
+//     } else {
+//         confirm_password.setCustomValidity('');
+//     }
+// }
 
 Template.register.events({
     'submit #register': function(event, template) {
@@ -24,5 +34,14 @@ Template.register.events({
                 console.log(err);
             }
         });
+    },
+    'change #password': function(event, template) {
+        console.log(event);
+        console.log(template);
+        // validatePassword();
+    },
+    'keyup #confirm_password': function(event, template) {
+        // validatePassword();
     }
 });
+

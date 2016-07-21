@@ -5,9 +5,12 @@ base64 = function(element, callback) {
         reader.readAsDataURL(file);
         reader.onload = function(event) {
             callback(event.target.result);
+            return true;
         };
+        callback();
     }
 };
+
 Template.User_profile.events({
     'submit form': function(event, template) {
         event.preventDefault();
@@ -15,12 +18,15 @@ Template.User_profile.events({
         let registerData = {
             firstName: template.find('#first_name').value,
             lastName: template.find('#last_name').value,
-            avatar: ''
         };
-        Meteor.call('updateCurrentUser', {$set: {profile: registerData}});
 
+        let setAvatar = function(data) {
+            registerData.avatar = data;
+            Meteor.call('updateCurrentUser', {$set: {profile: registerData}});
+        };
 
-        base64(template.find('#fileUpload'), console.log);
+        base64(template.find('#fileUpload'), setAvatar);
+
         // get the file
 
 
@@ -30,10 +36,10 @@ Template.User_profile.events({
     }
 });
 Template.User_profile.helpers({
-    user: function() {
-        // Meteor.call('getCurrentUser');
-        return Meteor.call('getCurrentUser');
-    }
+    user: function() {return Users.findOne({_id: Meteor.userId()});},
 });
 
+Template.registerHelper('log', function(what) {
+    console.log(what);
+});
 

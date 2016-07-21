@@ -1,10 +1,11 @@
 <template name="User_profile">
-    <h1>Your profile on: {{user}}</h1>
+    <h1>{{user.profile.firstName}}, it's Your profile</h1>
+    {{log user.profile}}
 		<div class="row">
 				<form class="col s10">
 						<div class="row">
 								<div class="input-field col s6">
-										<img src="https://unsplash.it/150/150" alt="avatar">
+										<img src="{{user.profile.avatar}}" alt="avatar">
 								</div>
 								<div class="file-field input-field">
 										<div class="btn">
@@ -18,7 +19,7 @@
 						</div>
 						<div class="row">
 								<div class="input-field col s6">
-										<input id="first_name" type="text" class="validate">
+										<input id="first_name" type="text" class="validate" value="{{user.profile.firstName}}">
 										<label for="first_name">First Name</label>
 								</div>
 								<div class="input-field col s6">

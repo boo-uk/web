@@ -1,5 +1,5 @@
 Template.header.helpers({
-    userMail: () => Meteor.user().emails[0].address
+    userMail: () => Meteor.user().emails[0]
 });
 
 Template.header.onRendered(function() {

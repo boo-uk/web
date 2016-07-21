@@ -39,6 +39,10 @@ Users.allow({
 Meteor.methods({
     logToConsole: (msg) => console.log(msg),
     getUser: (user) => Meteor.users.findOne({_id: user}),
-    getCurrentUser: () => Meteor.users.findOne({_id: Meteor.userId()}),
+    getCurrentUser: function(){
+        let a = Users.findOne({_id: Meteor.userId()});
+    return 'a';
+}           ,
+
     updateCurrentUser: (data) => Meteor.users.upsert(Meteor.userId(), data)
 });
