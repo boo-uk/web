@@ -2,7 +2,7 @@
     <div>Houses</div>
     {{#each house}}
 
-    <div class="card small" style="width: 450px; display: inline-block; margin: 10px 5px 0 5px;">
+    <div class="card small" style="display: inline-block;">
         <div class="card-image waves-effect waves-block waves-light">
             <img class="activator" src="http://lorempixel.com/400/200">
         </div>
@@ -13,6 +13,7 @@
         <div class="card-reveal">
             <span class="card-title grey-text text-darken-4">{{title}}<i class="material-icons right">close</i></span>
             <p>City: {{city}}</p>
+            <p>Country: {{country}}</p>
             <p>Street: {{street}}</p>
             <p>Number: {{number}}</p>
         </div>

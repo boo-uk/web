@@ -1,11 +1,21 @@
 <template name="add_house">
-    <div>Add Houses</div>
-    <form id="house-add">
-        <input type="text" class="house-title" placeholder="Name">
-        <input type="text" class="house-city" placeholder="City">
-        <input type="text" class="house-street" placeholder="Street">
-        <input type="text" class="house-number" placeholder="Number">
+    <div>Add House</div>
+    <div style="width: 400px; margin: 0 10px">
+        <form id="house-add">
+            <input type="text" class="house-title" placeholder="Name">
+            <div class="input-field col s12">
+                <select id="country-select">
+                    {{#each countries}}
+                    <option value="{{name}}">{{name}}</option>
+                    {{/each}}
+                </select>
+                <label>Materialize Select</label>
+            </div>
+            <input type="text" class="house-city" placeholder="City">
+            <input type="text" class="house-street" placeholder="Street">
+            <input type="text" class="house-number" placeholder="Number">
 
-        <button class="submit">Add House</button>
-    </form>
+            <button class="submit">Add House</button>
+        </form>
+    </div>
 </template>
