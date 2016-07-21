@@ -1,10 +1,9 @@
-base64 = function ImgToBase64(element, callback) {
+base64 = function(element, callback) {
     let reader = new FileReader();
     let file = element.files[0];
     if (file) {
         reader.readAsDataURL(file);
         reader.onload = function(event) {
-            registerData.avatar = event.target.result;
             callback(event.target.result);
         };
     }
@@ -21,7 +20,7 @@ Template.User_profile.events({
         Meteor.call('updateCurrentUser', {$set: {profile: registerData}});
 
 
-        base(template.find('#fileUpload'), console.log);
+        base64(template.find('#fileUpload'), console.log);
         // get the file
 
 
