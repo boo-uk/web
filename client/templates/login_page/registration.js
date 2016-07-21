@@ -1,19 +1,16 @@
-// let password = document.getElementById("password");
-// let confirm_password = document.getElementById("confirm_password");
-//
-// function validatePassword(pass, confirm) {
-//     if(password.value !== confirm_password.value) {
-//         confirm_password.setCustomValidity("Passwords Don't Match");
-//     } else {
-//         confirm_password.setCustomValidity('');
-//     }
-// }
+function validatePassword(pass, confirm) {
+    if(pass.value !== confirm.value) {
+        confirm.setCustomValidity("Passwords Don't Match");
+    } else {
+        confirm.setCustomValidity('');
+    }
+}
 
 Template.register.events({
     'submit #register': function(event, template) {
         event.preventDefault();
-        let userEmail = template.find('#email-r').value;
-        let userPass = template.find('#password-r').value;
+        let userEmail = template.find('#email').value;
+        let userPass = template.find('#password').value;
         let userRole = 1;
         Accounts.createUser({
             email: userEmail,
@@ -36,12 +33,10 @@ Template.register.events({
         });
     },
     'change #password': function(event, template) {
-        console.log(event);
-        console.log(template);
-        // validatePassword();
+        validatePassword(event.target, template.find('#password'));
     },
-    'keyup #confirm_password': function(event, template) {
-        // validatePassword();
+    'keyup #confirm-password': function(event, template) {
+        validatePassword(template.find('#password'), event.target);
     }
 });
 
