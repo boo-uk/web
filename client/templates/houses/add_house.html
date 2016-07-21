@@ -1,21 +1,39 @@
 <template name="add_house">
-    <div>Add House</div>
     <div style="width: 400px; margin: 0 10px">
         <form id="house-add">
-            <input type="text" class="house-title" placeholder="Name">
+            <input type="text" class="house-title" placeholder="Title">
             <div class="input-field col s12">
                 <select id="country-select">
+                    <option value="" disabled selected>Choose country</option>
                     {{#each countries}}
                     <option value="{{name}}">{{name}}</option>
                     {{/each}}
                 </select>
-                <label>Materialize Select</label>
             </div>
             <input type="text" class="house-city" placeholder="City">
             <input type="text" class="house-street" placeholder="Street">
             <input type="text" class="house-number" placeholder="Number">
+            <div class="file-field input-field">
+                <div class="btn">
+                    <span>File</span>
+                    <input type="file">
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" placeholder="Photo">
+                </div>
+            </div>
+            <div class="input-field col s12">
+                <select id="check-in-select">
+                    <option value="" disabled selected>Check-in</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="12:00">12:00</option>
+                </select>
+            </div>
 
-            <button class="submit">Add House</button>
+            <button class="btn waves-effect waves-light" type="submit" name="action">Add House
+                <i class="material-icons right">send</i>
+            </button>
         </form>
     </div>
 </template>
