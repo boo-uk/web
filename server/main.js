@@ -37,21 +37,8 @@ Users.allow({
 });
 
 Meteor.methods({
-    logToConsole: function(msg) {
-        console.log(msg);
-    },
-    getUser: (user) => {
-        // Meteor.users.find({_id: user});
-        // console.log(Users.find(user).fetch());
-    },
-    getCurrentUser: function(){
-        Meteor.users.find({_id: Meteor.userId().fetch()});
-        // console.log(Users.find(user).fetch());
-    },
-    updateCurrentUser: (data) => {
-        // console.log(Users.find(user).fetch());
-        console.log(data);
-
-        Meteor.users.upsert(Meteor.userId(), data);
-    }
+    logToConsole: (msg) => console.log(msg),
+    getUser: (user) => Meteor.users.findOne({_id: user}),
+    getCurrentUser: () => Meteor.users.findOne({_id: Meteor.userId()}),
+    updateCurrentUser: (data) => Meteor.users.upsert(Meteor.userId(), data)
 });
