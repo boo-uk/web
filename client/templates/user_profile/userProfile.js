@@ -1,17 +1,3 @@
-base64 = function(element, callback) {
-    let reader = new FileReader();
-    let file = element.files[0];
-    if (file) {
-        reader.readAsDataURL(file);
-        reader.onload = function(event) {
-            callback(event.target.result);
-            return true;
-        };
-    }else {
-        callback();
-    }
-};
-
 Template.User_profile.events({
     'submit form': function(event, template) {
         event.preventDefault();
@@ -37,7 +23,7 @@ Template.User_profile.events({
     }
 });
 Template.User_profile.helpers({
-    user: function() {return Users.findOne({_id: Meteor.userId()});},
+    user: () => Users.findOne({_id: Meteor.userId()})
 });
 
 Template.registerHelper('log', function(what) {

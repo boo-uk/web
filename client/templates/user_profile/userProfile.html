@@ -1,47 +1,50 @@
 <template name="User_profile">
-    <h1>{{user.profile.firstName}}, it's Your profile</h1>
-    {{log user.profile}}
-		<div class="row">
-				<form class="col s10">
-						<div class="row">
-								<div class="input-field col s6">
-										<img src="{{user.profile.avatar}}" alt="avatar">
-								</div>
-								<div class="file-field input-field">
-										<div class="btn">
-												<span>File</span>
-												<input id="fileUpload" type="file">
-										</div>
-										<div class="file-path-wrapper">
-												<input class="file-path validate" type="text">
-										</div>
-								</div>
-						</div>
-						<div class="row">
-								<div class="input-field col s6">
-										<input id="first_name" type="text" class="validate" value="{{user.profile.firstName}}">
-										<label for="first_name">First Name</label>
-								</div>
-								<div class="input-field col s6">
-										<input id="last_name" type="text" class="validate">
-										<label for="last_name">Last Name</label>
-								</div>
-						</div>
-						<div class="row">
-								<div class="input-field col s12">
-										<input id="password" type="password" class="validate">
-										<label for="password">Password</label>
-								</div>
-						</div>
-						<div class="row">
-								<div class="input-field col s12">
-										<input id="email" type="email" class="validate">
-										<label for="email">Email</label>
-								</div>
-						</div>
-						<button class="btn waves-effect waves-light" type="submit" name="action">Submit
-								<i class="material-icons right">send</i>
-						</button>
-				</form>
-		</div>
+    {{#with user.profile}}
+        <div class="row">
+            {{#if firstName}}
+                <h1>{{firstName}}, it's Your profile</h1>
+            {{/if }}
+            <form class="col s10">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <img src="{{avatar}}" alt="avatar">
+                    </div>
+                    <div class="file-field input-field">
+                        <div class="btn">
+                            <span>File</span>
+                            <input id="fileUpload" type="file">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="first_name" type="text" class="validate" value="{{firstName}}">
+                        <label for="first_name">First Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="last_name" type="text" class="validate">
+                        <label for="last_name">Last Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="password" type="password" class="validate">
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email" type="email" class="validate">
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                    <i class="material-icons right">send</i>
+                </button>
+            </form>
+        </div>
+    {{/with}}
 </template>
