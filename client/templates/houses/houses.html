@@ -1,8 +1,8 @@
 <template name="houses">
     <div>Houses</div>
     {{#each house}}
-
-    <div class="card small" style="display: inline-block;">
+    <div class="row">
+    <div class="card small col s3">
         <div class="card-image waves-effect waves-block waves-light">
             <img class="activator" src="https://unsplash.it/400/200?random">
             <!--<img class="activator" src="{{img}}">-->
@@ -26,6 +26,10 @@
                 {{/if}}
             </p>
         </div>
+        <div class="card-action">
+            <a href="http://localhost:3000/houses/eqcFn5ybAfwiRyQmF">This is a link</a>
+        </div>
     </div>
+        </div>
     {{/each}}
 </template>
