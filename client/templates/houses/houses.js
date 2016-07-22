@@ -17,12 +17,14 @@ Template.add_house.events ({
             number: template.find('.house-number').value,
             checkIn: template.findAll('#check-in-select option')[template.find('#check-in-select').selectedIndex].value,
             checkOut: template.findAll('#check-out-select option')[template.find('#check-out-select').selectedIndex].value,
-            wifi: template.find('input[name=internet-check]:checked').value
+            wifi: template.find('input[name=internet-check]:checked') ? true : false
         };
         base64(template.find('#imgUpload'), addImg);
     }
 });
 Template.add_house.onRendered( () => {
     $('select').material_select();
+});
+Template.houses.onRendered( () => {
     $('.tooltipped').tooltip({delay: 50});
 });

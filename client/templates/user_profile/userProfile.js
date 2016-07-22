@@ -7,6 +7,7 @@ base64 = function(element, callback) {
             callback(event.target.result);
             return true;
         };
+    }else {
         callback();
     }
 };

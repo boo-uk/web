@@ -1,0 +1,43 @@
+<template name="house_info">
+    {{#each house}}
+    <div class="row">
+        <div class="col s12 m7">
+            <div class="card">
+                <div class="card-image">
+                    <img class="activator" src="{{img}}">
+                    <span class="card-title">{{title}}</span>
+                </div>
+                <div class="card-content">
+                    <p>City: {{city}}</p>
+                </div>
+                <div class="card-content">
+                    <p>Country: {{country}}</p>
+                </div>
+                <div class="card-content">
+                    <p>Street: {{street}}</p>
+                </div>
+                <div class="card-content">
+                    <p>Number: {{number}}</p>
+                </div>
+                <div class="card-content">
+                    <p>Check-in: {{checkIn}}</p>
+                </div>
+                <div class="card-content">
+                    <p>Check-out: {{checkOut}}</p>
+                </div>
+                <div class="card-content">
+                    <p>{{#if wifi}}
+                        <i class="material-icons tooltipped" data-position="top" data-delay="50" data-tooltip="Wi-Fi">wifi</i>
+                    {{else}}
+                        <i class="material-icons tooltipped" data-position="top" data-delay="50" data-tooltip="No Internet connection">signal_wifi_off</i>
+                    {{/if}}
+                    </p>
+                </div>
+                <div class="card-action">
+                    <a href="#">This is a link</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</template>
