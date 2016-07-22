@@ -1,3 +1,3 @@
-Template.house_info.helpers ({
-    house: () =>  Houses.find()
-});
+// Template.house_info.helpers ({
+//     house: () =>  Houses.find()
+// });

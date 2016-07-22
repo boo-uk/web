@@ -1,5 +1,4 @@
 <template name="house_info">
-    {{#each house}}
     <div class="row">
         <div class="col s12 m7">
             <div class="card">
@@ -8,6 +7,7 @@
                     <span class="card-title">{{title}}</span>
                 </div>
                 <div class="card-content">
+                    {{log house}}
                     <p>City: {{city}}</p>
                 </div>
                 <div class="card-content">
@@ -39,5 +39,4 @@
             </div>
         </div>
     </div>
-    {{/each}}
 </template>
