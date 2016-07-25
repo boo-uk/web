@@ -11,6 +11,7 @@ Template.add_house.events ({
         }
         let houseInfo = {
             title: template.find('.house-title').value,
+            description: template.find('#description-area').value,
             country: template.findAll('#country-select option')[template.find('#country-select').selectedIndex].value,
             city: template.find('.house-city').value,
             street: template.find('.house-street').value,
@@ -23,6 +24,7 @@ Template.add_house.events ({
     }
 });
 Template.add_house.onRendered( () => {
+    $('textarea#description-area').characterCounter();
     $('select').material_select();
 });
 Template.houses.onRendered( () => {
