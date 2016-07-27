@@ -1,3 +1,5 @@
+Meteor.subscribe('Houses');
+
 Template.houses.helpers ({
     house: () =>  Houses.find()
 });
@@ -18,7 +20,9 @@ Template.add_house.events ({
             number: template.find('.house-number').value,
             checkIn: template.findAll('#check-in-select option')[template.find('#check-in-select').selectedIndex].value,
             checkOut: template.findAll('#check-out-select option')[template.find('#check-out-select').selectedIndex].value,
-            wifi: template.find('input[name=internet-check]:checked') ? true : false
+            wifi: template.find('input[name=internet-check]:checked') ? true : false,
+            wifi2: template.find('input[name=internet-check]:checked'),
+            authorId: !!Meteor.userId()
         };
         base64(template.find('#imgUpload'), addImg);
     }
