@@ -8,11 +8,21 @@
             </ul>
             <div class="nav-wrapper teal">
                 <a href="/" class="brand-logo">Logo</a>
-                <a href="/" class="brand-logo">{{i18n 'helloWorld'}}</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="#">Item1</a></li>
+                    <li>{{> SearchField}}</li>
+                    <li>
+                        <div class="input-field col s12 m6">
+                            <select class="icons">
+                                <option value="" disabled selected data-icon="{{i18n 'flag'}}">Choose your option</option>
+                                <option value="" data-icon="{{i18n 'flag'}}" class="circle">example 1</option>
+                                <option value="" data-icon="images/office.jpg" class="circle">example 2</option>
+                                <option value="" data-icon="images/yuna.jpg" class="circle">example 1</option>
+                            </select>
+                            <!--<label>Images in select</label>-->
+                        </div>
+                    </li>
                     <li><a href="#">Item2</a></li>
-                    {{> LangSwitcher}}
+                    <!--{{> LangSwitcher}}-->
                     {{#if currentUser}}
                         <li><a id="myElem" class="dropdown-button" href="#" data-activates="dropdown1">{{userMail}}<i
                                 class="material-icons right">arrow_drop_down</i></a></li>
@@ -24,6 +34,21 @@
         </nav>
     </header>
 </template>
+
+<template name="SearchField">
+    <nav>
+        <div class="nav-wrapper blue-grey">
+            <form>
+                <div class="input-field">
+                    <input id="search" type="search" required>
+                    <label for="search"><i class="material-icons">search</i></label>
+                    <i class="material-icons">close</i>
+                </div>
+            </form>
+        </div>
+    </nav>
+</template>
+
 <template name="LangSwitcher">
     <li><a id="language-switcher" class="dropdown-button" href="#" data-activates="dropdown2">UK<i
             class="material-icons right">arrow_drop_down</i></a></li>
@@ -32,7 +57,7 @@
         <li>EN</li>
     </ul>
     <div id="tx-live-lang-container" class="txlive-langselector txlive-langselector-bottomright">
-        <ul id="tx-live-lang-picker" class="txlive-langselector-list notranslate   ">
+        <ul id="tx-live-lang-picker" class="txlive-langselector-list notranslate">
             <li data-value="en">English</li>
             <li data-value="cs">Čeština</li>
             <li data-value="nl">Nederlands</li>

@@ -14,3 +14,4 @@ if (Houses.find().count() === 0) {
         number: 31
     });
 }
+
