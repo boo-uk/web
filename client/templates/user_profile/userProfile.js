@@ -1,4 +1,4 @@
-Template.User_profile.events({
+Template.UserProfile.events({
     'submit form': function(event, template) {
         event.preventDefault();
 
@@ -22,7 +22,7 @@ Template.User_profile.events({
         // Meteor.call('getUser', '{_id: Meteor.userId(), {$set: {profile: data}}}');
     }
 });
-Template.User_profile.helpers({
+Template.UserProfile.helpers({
     user: () => Users.findOne({_id: Meteor.userId()})
 });
 

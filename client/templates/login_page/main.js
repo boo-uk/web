@@ -1,8 +1,8 @@
-Template.login_page.rendered = () => $('ul.tabs').tabs();
+Template.LoginPage.rendered = () => $('ul.tabs').tabs();
 
 
 
-Template.login.events({
+Template.Login.events({
     'submit #login': function(event, template) {
         event.preventDefault();
         let userEmail = template.find('#email-l').value;

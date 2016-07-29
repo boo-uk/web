@@ -1,10 +1,10 @@
 Meteor.subscribe('Houses');
 
-Template.houses.helpers ({
+Template.Houses.helpers ({
     house: () =>  Houses.find()
 });
 
-Template.add_house.events ({
+Template.AddHouse.events ({
     'submit #house-add': (e, template) => {
         e.preventDefault();
         function addImg(img) {
@@ -27,10 +27,10 @@ Template.add_house.events ({
         base64(template.find('#imgUpload'), addImg);
     }
 });
-Template.add_house.onRendered( () => {
+Template.AddHouse.onRendered( () => {
     $('textarea#description-area').characterCounter();
     $('select').material_select();
 });
-Template.houses.onRendered( () => {
+Template.Houses.onRendered( () => {
     $('.tooltipped').tooltip({delay: 50});
 });

@@ -6,7 +6,7 @@ function validatePassword(pass, confirm) {
     }
 }
 
-Template.register.events({
+Template.Register.events({
     'submit #register': function(event, template) {
         event.preventDefault();
         let userEmail = template.find('#email').value;

@@ -1,23 +1,51 @@
-<template name="header">
-   <header>
-       <nav>
-           <ul id="dropdown1" class="dropdown-content">
-               <li><a href="{{pathFor route='profile'}}">Profile</a></li>
-               <li class="divider"></li>
-               <li>{{> logout}}</li>
-           </ul>
-           <div class="nav-wrapper teal">
-               <a href="/" class="brand-logo">Logo</a>
-               <ul id="nav-mobile" class="right hide-on-med-and-down">
-                   <li><a href="#">Item1</a></li>
-                   <li><a href="#">Item2</a></li>
-                   {{#if currentUser}}
-		                   <li><a id="myElem" class="dropdown-button" href="#" data-activates="dropdown1">{{userMail}}<i class="material-icons right">arrow_drop_down</i></a></li>
-                   {{else}}
-                       <li><a href="{{pathFor route='login'}}">Log In</a></li>
-                   {{/if}}
-               </ul>
-           </div>
-       </nav>
-   </header>
+<template name="Header">
+    <header>
+        <nav>
+            <ul id="dropdown1" class="dropdown-content">
+                <li><a href="{{pathFor route='UserProfile'}}">Profile</a></li>
+                <li class="divider"></li>
+                <li>{{> Logout}}</li>
+            </ul>
+            <div class="nav-wrapper teal">
+                <a href="/" class="brand-logo">Logo</a>
+                <a href="/" class="brand-logo">{{i18n 'helloWorld'}}</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="#">Item1</a></li>
+                    <li><a href="#">Item2</a></li>
+                    {{> LangSwitcher}}
+                    {{#if currentUser}}
+                        <li><a id="myElem" class="dropdown-button" href="#" data-activates="dropdown1">{{userMail}}<i
+                                class="material-icons right">arrow_drop_down</i></a></li>
+                    {{else}}
+                        <li><a href="{{pathFor route='LoginPage'}}">{{i18n 'Log In'}}</a></li>
+                    {{/if}}
+                </ul>
+            </div>
+        </nav>
+    </header>
+</template>
+<template name="LangSwitcher">
+    <li><a id="language-switcher" class="dropdown-button" href="#" data-activates="dropdown2">UK<i
+            class="material-icons right">arrow_drop_down</i></a></li>
+    <ul id="dropdown2" class="dropdown-content">
+        <li>RU</li>
+        <li>EN</li>
+    </ul>
+    <div id="tx-live-lang-container" class="txlive-langselector txlive-langselector-bottomright">
+        <ul id="tx-live-lang-picker" class="txlive-langselector-list notranslate   ">
+            <li data-value="en">English</li>
+            <li data-value="cs">Čeština</li>
+            <li data-value="nl">Nederlands</li>
+            <li data-value="fr">Français</li>
+            <li data-value="de">Deutsch</li>
+            <li data-value="ko">한국어</li>
+            <li data-value="pt">Português</li>
+            <li data-value="ru">Русский</li>
+            <li data-value="es">Español</li>
+            <li data-value="sv">Svenska</li>
+        </ul>
+        <div class="txlive-langselector-toggle notranslate" id="tx-live-lang-toggle"><span
+                class="txlive-langselector-current" id="tx-live-lang-current">Русский</span><span
+                class="txlive-langselector-marker"></span></div>
+    </div>
 </template>
