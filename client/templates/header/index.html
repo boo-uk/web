@@ -2,7 +2,7 @@
     <header>
         <nav>
             <ul id="dropdown1" class="dropdown-content">
-                <li><a href="{{pathFor route='UserProfile'}}">Profile</a></li>
+                <li><a href="{{pathFor route='UserProfile'}}">{{_ 'Profile'}}</a></li>
                 <li class="divider"></li>
                 <li>{{> Logout}}</li>
             </ul>
@@ -10,24 +10,14 @@
                 <a href="/" class="brand-logo">Logo</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li>{{> SearchField}}</li>
-                    <li>
-                        <div class="input-field col s12 m6">
-                            <select class="icons">
-                                <option value="" disabled selected data-icon="{{i18n 'flag'}}">Choose your option</option>
-                                <option value="" data-icon="{{i18n 'flag'}}" class="circle">example 1</option>
-                                <option value="" data-icon="images/office.jpg" class="circle">example 2</option>
-                                <option value="" data-icon="images/yuna.jpg" class="circle">example 1</option>
-                            </select>
-                            <!--<label>Images in select</label>-->
-                        </div>
-                    </li>
+
+                    {{> LangSwitcher}}
                     <li><a href="#">Item2</a></li>
-                    <!--{{> LangSwitcher}}-->
                     {{#if currentUser}}
                         <li><a id="myElem" class="dropdown-button" href="#" data-activates="dropdown1">{{userMail}}<i
                                 class="material-icons right">arrow_drop_down</i></a></li>
                     {{else}}
-                        <li><a href="{{pathFor route='LoginPage'}}">{{i18n 'Log In'}}</a></li>
+                        <li><a href="{{pathFor route='LoginPage'}}">{{_ 'Log In'}}</a></li>
                     {{/if}}
                 </ul>
             </div>
@@ -50,27 +40,19 @@
 </template>
 
 <template name="LangSwitcher">
-    <li><a id="language-switcher" class="dropdown-button" href="#" data-activates="dropdown2">UK<i
-            class="material-icons right">arrow_drop_down</i></a></li>
-    <ul id="dropdown2" class="dropdown-content">
-        <li>RU</li>
-        <li>EN</li>
-    </ul>
-    <div id="tx-live-lang-container" class="txlive-langselector txlive-langselector-bottomright">
-        <ul id="tx-live-lang-picker" class="txlive-langselector-list notranslate">
-            <li data-value="en">English</li>
-            <li data-value="cs">Čeština</li>
-            <li data-value="nl">Nederlands</li>
-            <li data-value="fr">Français</li>
-            <li data-value="de">Deutsch</li>
-            <li data-value="ko">한국어</li>
-            <li data-value="pt">Português</li>
-            <li data-value="ru">Русский</li>
-            <li data-value="es">Español</li>
-            <li data-value="sv">Svenska</li>
-        </ul>
-        <div class="txlive-langselector-toggle notranslate" id="tx-live-lang-toggle"><span
-                class="txlive-langselector-current" id="tx-live-lang-current">Русский</span><span
-                class="txlive-langselector-marker"></span></div>
-    </div>
+    <li>
+        <div class="input-field col s12 m6">
+            <select class="icons">
+                <option value="" disabled selected data-icon="{{_ 'flag'}}">{{_ 'name'}}</option>
+            {{#each lang in langList}}
+                <option value="" data-icon="{{_ 'flag'}}" class="circle">{{lang}}</option>
+
+                <!--<option value="" data-icon="{{_ 'flag'}}" class="circle">example 1</option>-->
+                <!--<option value="" data-icon="{{_ 'flag'}}" class="circle">example 2</option>-->
+                <!--<option value="" data-icon="{{_ 'flag'}}" class="circle">example 1</option>-->
+            {{/each}}
+            </select>
+            <!--<label>Images in select</label>-->
+        </div>
+    </li>
 </template>
